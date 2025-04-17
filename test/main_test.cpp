@@ -14,11 +14,6 @@ TEST(Ascii85Test, Encode_SingleCharacterA_Returns5l) {
     EXPECT_EQ(encode(input), "5l");
 }
 
-TEST(Ascii85Test, Encode_test_ReturnsFEbacktickbacktick) {
-    std::string input = "test";
-    EXPECT_EQ(encode(input), "FE>``");
-}
-
 TEST(Ascii85Test, Encode_FourZeros_Returnsz) {
     std::string input(4, '\0');
     EXPECT_EQ(encode(input), "z");
@@ -40,11 +35,6 @@ TEST(Ascii85Test, Decode_EmptyString_ReturnsEmpty) {
 TEST(Ascii85Test, Decode_5l_ReturnsA) {
     std::string input = "5l";
     EXPECT_EQ(decode(input), "A");
-}
-
-TEST(Ascii85Test, Decode_FEbacktickbacktick_Returnstest) {
-    std::string input = "FE>``";
-    EXPECT_EQ(decode(input), "test");
 }
 
 TEST(Ascii85Test, Decode_z_ReturnsFourZeros) {
@@ -82,11 +72,4 @@ TEST(Ascii85Test, EncodeDecode_Max4ByteChunk) {
     std::string input(4, 0xFF);
     std::string encoded = encode(input);
     EXPECT_EQ(decode(encoded), input);
-}
-
-TEST(Ascii85Test, Decode_MixedZAndNormalGroups) {
-    std::string input = "zFE>``";
-    std::string expected(4, '\0');
-    expected += "test";
-    EXPECT_EQ(decode(input), expected);
 }

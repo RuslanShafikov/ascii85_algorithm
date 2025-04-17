@@ -1,0 +1,47 @@
+name: CI (C++ & Python)
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libgtest-dev build-essential
+
+      - name: Build GTest
+        run: |
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp *.a /usr/lib
+
+      - name: Build project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Release
+          make -j4
+
+      - name: Run C++ tests
+        run: |
+          cd build
+          ./tests  # Matches your CMake target name
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: |
+          pip install pytest
+
+      - name: Run Python tests
+        run: |
+          pytest test.py -v  # Runs your root-level test.py
