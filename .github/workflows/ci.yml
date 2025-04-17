@@ -28,6 +28,9 @@ jobs:
           cd build
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=Release
           make -j$(nproc)
+          # Make the binary executable and available in PATH
+          chmod +x ascii85
+          echo "$(pwd)" >> $GITHUB_PATH
 
       - name: Run C++ tests
         run: |
@@ -45,4 +48,6 @@ jobs:
 
       - name: Run Python tests
         run: |
+          # Verify the binary is accessible
+          which ascii85 || ls -l build/ascii85
           pytest test.py -v
