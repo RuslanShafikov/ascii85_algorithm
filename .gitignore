@@ -31,3 +31,26 @@
 *.out
 *.app
 *.venv
+
+#Build directories
+
+/build/          # CMake/make build files
+/cmake-build-*/  # CLion/CMake temporary builds (e.g., cmake-build-debug)
+/out/            # Alternative build directory
+/bin/            # Compiled binaries
+/lib/            # Compiled libraries
+
+#Python
+/.venv/          # Python virtual environment
+/venv/           # Alternate venv name
+__pycache__/     # Python bytecode cache
+*.py[cod]        # More Python cache files
+*.egg-info/      # Python package metadata
+/dist/           # Python built packages
+
+#IDE/Edito
+/.idea/          # JetBrains (CLion/PyCharm)
+/.vscode/        # VS Code settings (but can exclude if needed)
+*.swp            # Vim swap files
+*.sublime-*      # Sublime Text temp files
+
