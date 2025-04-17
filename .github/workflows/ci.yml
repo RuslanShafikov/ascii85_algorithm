@@ -16,22 +16,22 @@ jobs:
 
       - name: Build GTest
         run: |
-          cd /usr/src/gtest
-          sudo cmake CMakeLists.txt
+          cd /usr/src/googletest  # Changed from gtest to googletest
+          sudo cmake .
           sudo make
-          sudo cp *.a /usr/lib
+          sudo cp -v lib/*.a /usr/lib  # Verify copy
 
       - name: Build project
         run: |
           mkdir -p build
           cd build
           cmake .. -DCMAKE_BUILD_TYPE=Release
-          make -j4
+          make -j$(nproc)  # Dynamic core count
 
       - name: Run C++ tests
         run: |
           cd build
-          ./tests  # Matches your CMake target name
+          ./tests
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -44,4 +44,4 @@ jobs:
 
       - name: Run Python tests
         run: |
-          pytest test.py -v  # Runs your root-level test.py
+          pytest test.py -v

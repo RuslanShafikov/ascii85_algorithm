@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/ascii85.dir/link.d CMakeFiles/ascii85.dir/main.cpp.o CMakeFiles/ascii85.dir/coder.cpp.o -o ascii85
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/ascii85.dir/link.d CMakeFiles/ascii85.dir/main.cpp.o CMakeFiles/ascii85.dir/coder.cpp.o -o ascii85
