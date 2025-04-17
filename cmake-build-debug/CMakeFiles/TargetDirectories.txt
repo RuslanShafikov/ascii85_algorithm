@@ -1,0 +1,9 @@
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/ascii85.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/tests.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/test.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/install.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/install/local.dir
+/home/ruslan/CLionProjects/ascii85_algorithm/cmake-build-debug/CMakeFiles/install/strip.dir
