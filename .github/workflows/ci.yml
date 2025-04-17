@@ -16,17 +16,18 @@ jobs:
 
       - name: Build GTest
         run: |
-          cd /usr/src/googletest  # Changed from gtest to googletest
+          cd /usr/src/googletest
           sudo cmake .
           sudo make
-          sudo cp -v lib/*.a /usr/lib  # Verify copy
+          sudo cp -v lib/*.a /usr/lib
 
       - name: Build project
         run: |
+          rm -rf build
           mkdir -p build
           cd build
-          cmake .. -DCMAKE_BUILD_TYPE=Release
-          make -j$(nproc)  # Dynamic core count
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=Release
+          make -j$(nproc)
 
       - name: Run C++ tests
         run: |
